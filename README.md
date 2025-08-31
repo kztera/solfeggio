@@ -1,82 +1,21 @@
-# React + Vite + TypeScript Template (react-vite-ui)
+## Solfeggio: Piano Sight-Reading Trainer (React + Vite)
+A web application for piano sight-reading practice that runs entirely in the browser: choose difficulty levels, practice left/right hand separately, Study/Test modes with time limits, random note generation, and direct interaction with MIDI devices via Web MIDI API. The goal is to optimize the "sight-reading anytime" experience when away from a real piano, with PWA installation for offline use. 
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Dan5py/react-vite-ui/blob/main/LICENSE)
+### Key Features
+- Three difficulty levels: Easy, Medium, Hard; specific note range selection, maximum note display limit per session, independent left or right hand practice.
+- Two modes: Study (no time limit) and Test (timer/metronome), smooth scheduling with Tone.js Transport for stable note transitions.
+- MIDI in/out: connect MIDI devices in browser, receive note on/off events, hot-plug state changes; requires HTTPS as Web MIDI is a secure context.
+- Music notation: render staff and notes using VexFlow; can be extended to display MusicXML through community adapters if needed.
+- PWA: quick installation, offline cache, auto-update via vite-plugin-pwa for offline practice sessions.
 
-A React + Vite template powered by shadcn/ui.
-
-## 🎉 Features
-
-- **React** - A JavaScript library for building user interfaces.
-- **Vite** - A fast, opinionated frontend build tool.
-- **TypeScript** - A typed superset of JavaScript that compiles to plain JavaScript.
-- **Tailwind CSS** - A utility-first CSS framework (`v4`).
-- **Tailwind Prettier Plugin** - A Prettier plugin for formatting Tailwind CSS classes.
-- **ESLint** - A pluggable linting utility for JavaScript and TypeScript.
-- **shadcn/ui** - Beautifully designed components that you can copy and paste into your apps.
-
-## ⚙️ Prerequisites
-
-Make sure you have the following installed on your development machine:
-
-- Node.js (version 22 or above)
-- pnpm (package manager)
-
-## 🚀 Getting Started
-
-Follow these steps to get started with the react-vite-ui template:
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/dan5py/react-vite-ui.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd react-vite-ui
-   ```
-
-3. Install the dependencies:
-
-   ```bash
-   pnpm install
-   ```
-
-4. Start the development server:
-
-   ```bash
-   pnpm dev
-   ```
-
-## 📜 Available Scripts
-
-- pnpm dev - Starts the development server.
-- pnpm build - Builds the production-ready code.
-- pnpm lint - Runs ESLint to analyze and lint the code.
-- pnpm preview - Starts the Vite development server in preview mode.
-
-## 📂 Project Structure
-
-The project structure follows a standard React application layout:
-
-```python
-react-vite-ui/
-  ├── node_modules/      # Project dependencies
-  ├── public/            # Public assets
-  ├── src/               # Application source code
-  │   ├── components/    # React components
-  │   │   └── ui/        # shadc/ui components
-  │   ├── styles/        # CSS stylesheets
-  │   ├── lib/           # Utility functions
-  │   ├── App.tsx        # Application entry point
-  │   └── index.tsx      # Main rendering file
-  ├── eslint.config.js     # ESLint configuration
-  ├── index.html         # HTML entry point
-  ├── tsconfig.json      # TypeScript configuration
-  └── vite.config.ts     # Vite configuration
-```
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](https://choosealicense.com/licenses/mit/) file for details.
+### Technology Stack
+- React SPA initialized with Vite for fast development and optimized builds; modular structure for notation/midi/timing/state/routes.
+- VexFlow for music notation (Canvas/SVG); EasyScore/Factory support for quick note and system construction; can replace/integrate OSMD/vexml if MusicXML is needed.
+- Web MIDI API: MIDIAccess, MIDIInput/MIDIOutput, MIDIMessageEvent; attention to permissions and browser compatibility.
+- Tone.js: Transport/metronome/timer for test mode, precise audio-time event scheduling.
+- PWA: vite-plugin-pwa and configuration guide for manifest/service worker according to official documentation.
+- 
+### Development Roadmap
+- Expand exercise library, MusicXML presets by difficulty; add statistics/leaderboard and practice session reports.
+- UX improvements: keyboard shortcuts, accessibility, dark mode; optimize rendering performance for multiple notes/batches.
+- Integrate E2E testing/CI and popular MIDI device matrix to ensure reliability upon release.
